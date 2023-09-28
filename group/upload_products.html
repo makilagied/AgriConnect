@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Farmer Dashboard</title>
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <!-- Your custom CSS file -->
+        <link rel="stylesheet" href="../styles.css">
+    </head>
+<body>
+        <!-- Navigation Bar -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="../index.html">AgriConnect</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="dashboard.html">Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="manage_members.html">Manage Members</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="upload_products.html">Upload Products</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="customer_interactions.html">Customer Interactions</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="send_reports.html">Send Reports</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+
+    <!-- Upload Products Content -->
+    <div class="container">
+        <h1>Upload Products</h1>
+        <!-- Add form for uploading products -->
+        <form id="upload-product-form">
+            <div class="form-group">
+                <label for="product-name">Product Name</label>
+                <input type="text" class="form-control" id="product-name" name="product-name" required>
+            </div>
+            <div class="form-group">
+                <label for="product-description">Product Description</label>
+                <textarea class="form-control" id="product-description" name="product-description" rows="4" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="material-description">Image</label>
+                <input type="file" class="form-control" id="material-image" name="material-image" required>
+            </div>
+            <div class="form-group">
+                <label for="product-price">Price</label>
+                <input type="number" class="form-control" id="product-price" name="product-price" step="0.01" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Upload Product</button>
+        </form>
+    </div>
+
+    <!-- Add Bootstrap JS scripts (jQuery and Popper.js) and custom scripts -->
+    <!-- Add Bootstrap JS scripts (jQuery and Popper.js) and custom scripts -->
+            <!-- Bootstrap JS scripts (jQuery and Popper.js) -->
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+            <!-- Bootstrap JS -->
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

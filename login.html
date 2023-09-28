@@ -27,23 +27,48 @@
         </div>
     </nav>
 
-    <!-- Login Form -->
-    <div class="container">
-        <h1>Login</h1>
-        <form>
-            <div class="form-group">
-                <label for="email">Email</label>
-                <input type="email" class="form-control" id="email" placeholder="Enter your email" required>
-            </div>
-            <div class="form-group">
-                <label for="password">Password</label>
-                <input type="password" class="form-control" id="password" placeholder="Enter your password" required>
-            </div>
-            <button type="submit" class="btn btn-primary">Login</button>
-        </form>
-    </div>
+ <!-- Login Form -->
+ <div class="container">
+    <h1>Login</h1>
+    <form id="login-form">
+        <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" class="form-control" id="username" placeholder="Enter username" required>
+        </div>
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" class="form-control" id="password" placeholder="Enter password" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Login</button>
+    </form>
+</div>
 
-    <!-- Bootstrap JS scripts (jQuery and Popper.js) -->
-    <!-- ... (JS script links) ... -->
+<!-- JavaScript for Fake Login Authentication -->
+<script>
+    const loginForm = document.getElementById("login-form");
+
+    loginForm.addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        // Get username and password values
+        const username = document.getElementById("username").value;
+        const password = document.getElementById("password").value;
+
+        // Fake authentication logic (replace with real authentication)
+        if (password === "farmer") {
+            // Redirect to farmer dashboard
+            window.location.href = "farmer/dashboard.html";
+        } else if (password === "wholesaler") {
+            // Redirect to wholesaler dashboard
+            window.location.href = "wholesaler/dashboard.html";
+        } else if (password === "group") {
+            // Redirect to group dashboard
+            window.location.href = "group/dashboard.html";
+        } else {
+            // Handle incorrect credentials (show an error message, etc.)
+            alert("Invalid username or password.");
+        }
+    });
+</script>
 </body>
 </html>

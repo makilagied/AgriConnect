@@ -37,27 +37,46 @@
     </nav>
  <!-- Cart Content -->
  <div class="container">
-    <h1>Shopping Cart</h1>
-    <div id="cart-content">
-        <!-- Cart items will be dynamically added here -->
-    </div>
-    <p>Total: $<span id="cart-total">0.00</span></p>
-
-    <!-- Payment Methods -->
-    <h2>Payment Methods</h2>
-    <form id="payment-form">
-        <div class="form-check">
-            <input class="form-check-input" type="radio" name="payment-method" id="credit-card" value="credit-card" required>
-            <label class="form-check-label" for="credit-card">Credit Card</label>
+    <h1 class="cart-heading">Shopping Cart</h1>
+    <div class="cart-container">
+        <div class="cart-items" id="cart-content">
+            <!-- Cart items will be dynamically added here -->
         </div>
-        <div class="form-check">
-            <input class="form-check-input" type="radio" name="payment-method" id="paypal" value="paypal" required>
-            <label class="form-check-label" for="paypal">PayPal</label>
+        <div class="cart-summary">
+            <div class="cart-total">
+                <p>Total: <span id="cart-total">0.00</span> USD</p>
+            </div>
+            <div class="cart-actions">
+                <button class="btn btn-danger" id="clear-cart">Clear Cart</button>
+                <button class="btn btn-primary" id="proceed-to-payment" data-toggle="modal" data-target="#paymentModal">Proceed to Payment</button>
+            </div>
         </div>
-        <button type="submit" class="btn btn-primary">Proceed to Payment</button>
-    </form>
-    
-</div>
+        
+        <!-- Payment Method Modal -->
+        <div class="modal fade" id="paymentModal" tabindex="-1" role="dialog" aria-labelledby="paymentModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="paymentModalLabel">Select a Payment Method</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Please choose a payment method:</p>
+                        <select class="form-control" id="payment-method">
+                            <option value="credit-card">Credit Card</option>
+                            <option value="paypal">PayPal</option>
+                            <option value="bank-transfer">Bank Transfer</option>
+                        </select>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary" id="confirm-payment">Confirm Payment</button>
+                    </div>
+                </div>
+            </div>
+        </div>
 
     <!-- Bootstrap JS scripts (jQuery and Popper.js) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -116,3 +135,18 @@
         // Initial cart display update
         updateCartDisplay();
     </script>
+
+    <!-- JavaScript for Shopping Cart and Payment Modal -->
+<script>
+
+    // Handle payment confirmation
+    const confirmPaymentButton = document.getElementById("confirm-payment");
+    confirmPaymentButton.addEventListener("click", function () {
+        const selectedPaymentMethod = document.getElementById("payment-method").value;
+
+ alert(`Payment method selected: ${selectedPaymentMethod}`);
+
+        // Close the modal
+        $('#paymentModal').modal('hide');
+    });
+</script>
