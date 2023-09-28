@@ -40,48 +40,68 @@
 
 <!-- Group Dashboard Content -->
 <div class="container">
-    <h1>Welcome to the Group Dashboard</h1>
+    <h1 class="mt-4 mb-4">Welcome to the Group Dashboard</h1>
     
-    <!-- Section Showing Activities for All Members -->
-    <h2>Activities of Group Members</h2>
+    <!-- Members Cards Section -->
+    <h2 class="mb-3">Group Members</h2>
     <div class="row">
         <!-- Member 1 -->
-        <div class="col-md-6">
-            <h3>Member 1</h3>
-            <p>Activities:</p>
-            <ul>
-                <li>Uploaded new products</li>
-                <li>Interacted with customers</li>
-            </ul>
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <img src="profile1.jpg" class="card-img-top" alt="Member 1">
+                <div class="card-body">
+                    <h5 class="card-title">Member 1</h5>
+                    <p class="card-text">
+                        <strong>Farms Owned:</strong> Farm A, Farm B<br>
+                        <strong>Products for Sale:</strong> Product X, Product Y
+                    </p>
+                </div>
+            </div>
         </div>
         <!-- Member 2 (Add more members here) -->
-        <div class="col-md-6">
-            <h3>Member 2</h3>
-            <p>Activities:</p>
-            <ul>
-                <li>Reviewed product listings</li>
-                <li>Sent reports to group</li>
-            </ul>
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <img src="profile2.jpg" class="card-img-top" alt="Member 2">
+                <div class="card-body">
+                    <h5 class="card-title">Member 2</h5>
+                    <p class="card-text">
+                        <strong>Farms Owned:</strong> Farm C<br>
+                        <strong>Products for Sale:</strong> Product Z
+                    </p>
+                </div>
+            </div>
         </div>
     </div>
 
-    <!-- Table of Group Members -->
-    <h2>Group Members</h2>
+    <h2 class="mt-5 mb-3">Reports</h2>
     <div class="row">
-        <!-- Member 1 -->
         <div class="col-md-6">
-            <p><strong>Member 1</strong></p>
-            <p><strong>Role:</strong> Farmer</p>
-            <p><strong>Farms Owned:</strong> Farm A, Farm B</p>
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Sales Report</h5>
+                    <p class="card-text">View trends in sales.</p>
+                    <!-- Chart.js Chart for Sales Trends -->
+                    <canvas id="salesChart" width="400" height="200"></canvas>
+                    <!-- <a href="#" class="btn btn-primary">View Sales Report</a> -->
+                </div>
+            </div>
         </div>
-        <!-- Member 2 (Add more members here) -->
         <div class="col-md-6">
-            <p><strong>Member 2</strong></p>
-            <p><strong>Role:</strong> Wholesaler</p>
-            <p><strong>Farms Owned:</strong> None</p>
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Product Visits</h5>
+                    <p class="card-text">Total product visits: <span id="productVisitsCount">0</span></p>
+                    <!-- <a href="#" class="btn btn-primary">View Product Visits</a> -->
+                </div>
+            </div>
         </div>
     </div>
+
+    <!-- Add custom CSS styles for further styling if needed -->
 </div>
+
+
+
 
 
     <!-- Add Bootstrap JS scripts (jQuery and Popper.js) and custom scripts -->
@@ -90,6 +110,38 @@
             <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
             <!-- Bootstrap JS -->
             <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-        
+            <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+            <script>
+                // Sample data for Sales Chart (replace with real data)
+                const salesData = {
+                    labels: ["Jan", "Feb", "Mar", "Apr", "May"],
+                    datasets: [{
+                        label: "Sales",
+                        data: [12, 19, 3, 5, 2], // Sample sales data
+                        backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                        borderColor: 'rgba(75, 192, 192, 1)',
+                        borderWidth: 1
+                    }]
+                };
+            
+                // Create a Sales Chart
+                const salesChart = new Chart(document.getElementById('salesChart'), {
+                    type: 'line',
+                    data: salesData,
+                    options: {
+                        scales: {
+                            y: {
+                                beginAtZero: true
+                            }
+                        }
+                    }
+                });
+            
+                // Sample data for Product Visits (replace with real data)
+                const productVisitsCount = 100; // Sample product visits count
+            
+                // Display the product visits count
+                document.getElementById('productVisitsCount').textContent = productVisitsCount;
+            </script>
 </body>
 </html>
