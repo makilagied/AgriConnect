@@ -6,6 +6,8 @@
         <title>Farmer Dashboard</title>
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+                <!-- Include Chart.js library -->
+                <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
         <!-- Your custom CSS file -->
         <link rel="stylesheet" href="../styles.css">
     </head>
@@ -57,6 +59,29 @@
             </div>
             <!-- Add more quick links as needed -->
         </div>
+        <h2 class="mt-5 mb-3">Reports</h2>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Sales Report</h5>
+                        <p class="card-text">View trends in sales.</p>
+                        <!-- Chart.js Chart for Sales Trends -->
+                        <canvas id="salesChart" width="400" height="200"></canvas>
+                        <!-- <a href="#" class="btn btn-primary">View Sales Report</a> -->
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Product Visits</h5>
+                        <p class="card-text">Total product visits: <span id="productVisitsCount">0</span></p>
+                        <!-- <a href="#" class="btn btn-primary">View Product Visits</a> -->
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
     <!-- Bootstrap JS scripts (jQuery and Popper.js) -->
@@ -65,6 +90,42 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <!-- Bootstrap JS -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
+    <script>
+        function initializeCharts() {           
+                  // Sample data for Sales Chart (replace with real data)
+                  const salesData = {
+                      labels: ["Jan", "Feb", "Mar", "Apr", "May"],
+                      datasets: [{
+                          label: "Sales",
+                          data: [12, 19, 3, 5, 2], // Sample sales data
+                          backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                          borderColor: 'rgba(75, 192, 192, 1)',
+                          borderWidth: 1
+                      }]
+                  };
+              
+                  // Create a Sales Chart
+                  const salesChart = new Chart(document.getElementById('salesChart'), {
+                      type: 'line',
+                      data: salesData,
+                      options: {
+                          scales: {
+                              y: {
+                                  beginAtZero: true
+                              }
+                          }
+                      }
+                  });
+              
+                  }
+  
+                  // Sample data for Product Visits (replace with real data)
+                  const productVisitsCount = 100; // Sample product visits count
+              
+              document.getElementById('productVisitsCount').textContent = productVisitsCount;
+  
+              // Call the initializeCharts function when the document is ready
+              document.addEventListener('DOMContentLoaded', initializeCharts);
+  </script>
 </body>
 </html>

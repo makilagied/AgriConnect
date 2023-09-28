@@ -4,6 +4,8 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Farmer Dashboard</title>
+        <!-- Include Chart.js library -->
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
         <!-- Your custom CSS file -->
@@ -96,7 +98,6 @@
             </div>
         </div>
     </div>
-
     <!-- Add custom CSS styles for further styling if needed -->
 </div>
 
@@ -110,8 +111,8 @@
             <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
             <!-- Bootstrap JS -->
             <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-            <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
             <script>
+      function initializeCharts() {           
                 // Sample data for Sales Chart (replace with real data)
                 const salesData = {
                     labels: ["Jan", "Feb", "Mar", "Apr", "May"],
@@ -137,11 +138,15 @@
                     }
                 });
             
+                }
+
                 // Sample data for Product Visits (replace with real data)
                 const productVisitsCount = 100; // Sample product visits count
             
-                // Display the product visits count
-                document.getElementById('productVisitsCount').textContent = productVisitsCount;
-            </script>
+            document.getElementById('productVisitsCount').textContent = productVisitsCount;
+
+            // Call the initializeCharts function when the document is ready
+            document.addEventListener('DOMContentLoaded', initializeCharts);
+</script>
 </body>
 </html>
