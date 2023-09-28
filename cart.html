@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AgriConnect - Marketplace</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Bootstrap CSS link -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">AgriConnect</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">Home</a>
+                    
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="marketplace.html">Marketplace</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="education.html">Agricultural Education</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" id="cart-link">Cart</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="login.html">Login</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+ <!-- Cart Content -->
+ <div class="container">
+    <h1>Shopping Cart</h1>
+    <div id="cart-content">
+        <!-- Cart items will be dynamically added here -->
+    </div>
+    <p>Total: $<span id="cart-total">0.00</span></p>
+
+    <!-- Payment Methods -->
+    <h2>Payment Methods</h2>
+    <form id="payment-form">
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="payment-method" id="credit-card" value="credit-card" required>
+            <label class="form-check-label" for="credit-card">Credit Card</label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="payment-method" id="paypal" value="paypal" required>
+            <label class="form-check-label" for="paypal">PayPal</label>
+        </div>
+        <button type="submit" class="btn btn-primary">Proceed to Payment</button>
+    </form>
+    
+</div>
+
+    <!-- Bootstrap JS scripts (jQuery and Popper.js) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+        // Function to retrieve cart items from local storage
+        function getCartItems() {
+            const cart = JSON.parse(localStorage.getItem("cart")) || [];
+            return cart;
+        }
+
+        // Function to update the cart display
+        function updateCartDisplay() {
+            const cartItems = getCartItems();
+            const cartContent = document.getElementById("cart-content");
+            const cartTotal = document.getElementById("cart-total");
+
+            // Clear existing cart display
+            cartContent.innerHTML = "";
+
+            // Populate cart items and calculate total
+            let total = 0;
+            cartItems.forEach(item => {
+                const li = document.createElement("li");
+                li.textContent = `${item.product} - $${item.price.toFixed(2)}`;
+                cartContent.appendChild(li);
+                total += item.price;
+            });
+
+            // Update total
+            cartTotal.textContent = total.toFixed(2);
+        }
+
+        // Function to handle form submission (payment)
+        function handlePaymentSubmit(event) {
+            event.preventDefault();
+
+            // Retrieve selected payment method
+            const paymentMethod = document.querySelector('input[name="payment-method"]:checked');
+
+            if (paymentMethod) {
+                const selectedPaymentMethod = paymentMethod.value;
+                alert(`Payment successful using ${selectedPaymentMethod}`);
+            } else {
+                alert("Please select a payment method.");
+            }
+        }
+
+        // Add event listener for form submission (payment)
+        const paymentForm = document.getElementById("payment-form");
+        paymentForm.addEventListener("submit", handlePaymentSubmit);
+
+        // Initial cart display update
+        updateCartDisplay();
+    </script>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Farmer Dashboard</title>
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <!-- Your custom CSS file -->
+        <link rel="stylesheet" href="../styles.css">
+    </head>
+    <body>
+        <!-- Navigation Bar -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="../index.html">AgriConnect</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="dashboard.html">Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="upload_raw_materials.html">Upload Product</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="farmer_interaction.html">Customer Interaction</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    <!-- Upload Raw Materials Form -->
+    <div class="container">
+        <h1>Upload Raw Materials</h1>
+        <form id="upload-raw-materials-form">
+            <div class="form-group">
+                <label for="material-name">Material Name</label>
+                <input type="text" class="form-control" id="material-name" name="material-name" required>
+            </div>
+            <div class="form-group">
+                <label for="material-description">Material Description</label>
+                <textarea class="form-control" id="material-description" name="material-description" rows="4" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="material-description">Image</label>
+                <input type="file" class="form-control" id="material-image" name="material-image" required>
+            </div>
+            <div class="form-group">
+                <label for="material-price">Price</label>
+                <input type="number" class="form-control" id="material-price" name="material-price" step="0.01" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Upload Material</button>
+        </form>
+    </div>
+
+    <!-- Bootstrap JS scripts (jQuery and Popper.js) -->
+    <!-- ... (JS script links) ... -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>

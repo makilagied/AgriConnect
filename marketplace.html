@@ -27,12 +27,17 @@
                     <a class="nav-link" href="education.html">Agricultural Education</a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link" href="cart.html" id="cart-link">Cart</a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" href="login.html">Login</a>
                 </li>
             </ul>
         </div>
     </nav>
     <!-- Marketplace Section -->
+
+    
     <div class="container">
         <h1>Marketplace</h1>
         <p>Connect with wholesale markets to sell your produce and improve your income.</p>
@@ -42,41 +47,79 @@
         <div class="row">
             <div class="col-md-4">
                 <div class="card">
-                    <img src="images/product1.jpg" class="card-img-top" alt="Product 1">
+                    <img src="images/tomato.jpg" class="card-img-top" alt="Product 1">
                     <div class="card-body">
                         <h5 class="card-title">Fresh Organic Tomatoes</h5>
                         <p class="card-text">Locally grown, pesticide-free tomatoes available for wholesale.</p>
                         <p class="card-text">Price: $2.50 per kg</p>
+                        <!-- Cart Icon and Add to Cart Button -->
+                        <div class="product-actions">
+                            <span class="cart-icon">&#128722;</span> <!-- Shopping cart icon -->
+                            <button class="btn btn-success add-to-cart" data-product="Tomatoes" data-price="2.50">Add to Cart</button>
+                        </div>                        
                     </div>
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="card">
-                    <img src="images/product2.jpg" class="card-img-top" alt="Product 2">
+                    <img src="images/eggs.jpg" class="card-img-top" alt="Product 2">
                     <div class="card-body">
                         <h5 class="card-title">Organic Eggs</h5>
                         <p class="card-text">Farm-fresh organic eggs from free-range hens.</p>
                         <p class="card-text">Price: $1.00 per dozen</p>
+                        <!-- Cart Icon and Add to Cart Button -->
+                        <div class="product-actions">
+                            <span class="cart-icon">&#128722;</span> <!-- Shopping cart icon -->
+                            <button class="btn btn-success add-to-cart" data-product="Organic Eggs" data-price="1.00">Add to Cart</button>
+                        </div>                        
                     </div>
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="card">
-                    <img src="images/product3.jpg" class="card-img-top" alt="Product 3">
+                    <img src="images/honey.jpg" class="card-img-top" alt="Product 3">
                     <div class="card-body">
                         <h5 class="card-title">Natural Honey</h5>
                         <p class="card-text">Pure, unprocessed honey harvested from local bee farms.</p>
                         <p class="card-text">Price: $5.00 per jar</p>
+                        <!-- Cart Icon and Add to Cart Button -->
+                        <div class="product-actions">
+                            <span class="cart-icon">&#128722;</span> <!-- Shopping cart icon -->
+                            <button class="btn btn-success add-to-cart" data-product="Natural Honey" data-price="5.00">Add to Cart</button>
+                        </div>                        
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
+
     <!-- Bootstrap JS scripts (jQuery and Popper.js) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <!-- Bootstrap JS -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!-- JavaScript for Adding to Cart -->
+    <script>
+        // Function to add an item to the cart
+        function addToCart(product, price) {
+            const cartItem = { product, price };
+            const cart = JSON.parse(localStorage.getItem("cart")) || [];
+            cart.push(cartItem);
+            localStorage.setItem("cart", JSON.stringify(cart));
+            alert(`${product} has been added to the cart.`);
+        }
+
+        // Add event listeners for "Add to Cart" buttons
+        const addToCartButtons = document.querySelectorAll(".add-to-cart");
+        addToCartButtons.forEach(button => {
+            button.addEventListener("click", function () {
+                const product = this.getAttribute("data-product");
+                const price = parseFloat(this.getAttribute("data-price"));
+                addToCart(product, price);
+            });
+        });
+    </script>
 </body>
 </html>

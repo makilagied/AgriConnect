@@ -124,3 +124,20 @@ h1, h2 {
         margin-bottom: 10px;
     }
 }
+
+
+/* Style the shopping cart */
+.cart {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    display: none; /* Initially hidden */
+}
+
+/* Show the shopping cart when the "show-cart" class is applied */
+.show-cart {
+    /* display: block; */
+}
+
+
