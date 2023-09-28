@@ -1,10 +1,126 @@
-/* Add your custom styles here */
-
-body {
-    padding: 20px;
+/* Reset default browser styles */
+body, h1, h2, p, ul, li {
+    margin: 0;
+    padding: 0;
 }
 
+/* Set a consistent font family and background color */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+}
+
+/* Style the navigation bar */
+.navbar {
+    background-color: #4CAF50;
+}
+
+.navbar-brand, .navbar-nav .nav-link {
+    color: #ffffff;
+}
+
+.navbar-brand:hover, .navbar-nav .nav-link:hover {
+    color: #e0e0e0;
+}
+
+/* Style container elements */
 .container {
-    text-align: center;
+    background-color: #ffffff;
+    padding: 20px;
     margin-top: 20px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Style headings */
+h1, h2 {
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Style buttons */
+.btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+}
+
+.btn-success {
+    background-color: #28a745;
+    border-color: #28a745;
+}
+
+.btn-success:hover {
+    background-color: #1f8c3f;
+    border-color: #1f8c3f;
+}
+
+/* Style form elements */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-control {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    font-size: 16px;
+}
+
+/* ... (Previous styles) ... */
+
+/* Style the random content section */
+.random-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Style featured articles/cards */
+.featured-articles {
+    margin-top: 20px;
+}
+
+.card {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 20px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.card-title {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+}
+
+.card-text {
+    font-size: 16px;
+    color: #666;
+}
+
+/* Style images within cards */
+.card-img-top {
+    max-height: 200px;
+    object-fit: cover;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+/* Responsive layout */
+@media (max-width: 768px) {
+    .random-content {
+        padding: 10px;
+    }
+
+    .card {
+        margin-bottom: 10px;
+    }
 }
