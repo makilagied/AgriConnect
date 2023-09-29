@@ -127,8 +127,34 @@ h1, h2 {
 }
 
 
+.header_section {
+    width: 100%;
+    float: left;
+    background-image: url(images/farmer.jpg);
+    height:500px;
+    background-size: 100%;
+    padding: 10px 0px 25px 0px;
+    background-repeat: no-repeat;
+}
+.banner_taital {
+    width: 100%;
+    float: left;
+    font-size: 60px;
+    color: #083313;
+    font-weight: bold;
+    /* margin: 20px; */
+    line-height: 60px;
+    padding-top: 120px;
+}
 
-
+.banner_text {
+    width: 100%;
+    float: left;
+    font-size: 20px;
+    /* margin: 20px; */
+    color: #ffffff;
+    font-weight: bold;
+}
 .footer {
     background-color: #333;
     color: #000000;
